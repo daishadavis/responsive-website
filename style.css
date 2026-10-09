@@ -1,0 +1,159 @@
+/* =========================================================
+   BASE STYLES = THE PHONE LAYOUT (mobile-first)
+   Everything here applies at every width.
+   No media queries yet: a single column works on its own.
+   ========================================================= */
+
+/* RESPONSIVE: padding and borders count inside an element's width,
+   so a box set to 100% never grows wider than its parent. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1f2933;
+}
+
+/* RESPONSIVE: images shrink to fit their container
+   and keep their proportions. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* RESPONSIVE: max-width (not width) lets the content fill a phone
+   but stop growing at 70rem on a big monitor. rem units scale with
+   the reader's font size. */
+.site-header,
+main,
+footer {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #1a56db;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  display: inline-block;
+  padding: 0.5rem 0;
+  color: #1f2933;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  padding: 1rem 0 2rem;
+}
+
+.hero img {
+  margin-top: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+/* Padding sizes the button from its text. No fixed pixel width,
+   so it can never be wider than the screen. */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background: #1a56db;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+
+/* RESPONSIVE: grid with no columns defined = one column.
+   The media queries below only have to add columns. */
+.cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.5rem;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+footer {
+  text-align: center;
+  color: #52606d;
+}
+
+/* =========================================================
+   TABLET: 600px and wider
+   "When the screen is at least 600px wide, ALSO apply these."
+   ========================================================= */
+@media (min-width: 600px) {
+  /* Logo on the left, links on the right. */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Links sit in a row instead of a stack. */
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  /* Two equal columns. fr = a share of the free space. */
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =========================================================
+   DESKTOP: 900px and wider
+   ========================================================= */
+@media (min-width: 900px) {
+  /* Text and image side by side, each taking half. */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .hero img {
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  /* Three equal columns. */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

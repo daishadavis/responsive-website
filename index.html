@@ -1,32 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <title>Byte Club</title>
+  <meta charset="UTF-8">
+
+  <!-- RESPONSIVE: tells phones to use their real screen width
+       instead of pretending to be a 980px desktop and zooming out. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Byte Club</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="site-header">
-        <a href="#">Byte Club</a>
-        <nav>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Join</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero" id="about">
-            <div class="hero-text">
-                <h1>Learn to code with friends</h1>
-                <p>Weekly meetups for beginners. No experience needed.</p>
-                <a href="#">Join the club</a>
-            </div>
-        </section>
-    </main>
+  <!-- Semantic elements (header, nav, main, section, article, footer)
+       give the CSS clear containers to rearrange at each width. -->
+  <header class="site-header">
+    <a class="logo" href="#">Byte Club</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- The hero has exactly two children (text and image),
+         so the CSS can stack them or place them side by side. -->
+    <section class="hero" id="about">
+      <div class="hero-text">
+        <h1>Learn to code with friends</h1>
+        <p>Weekly meetups for beginners. No experience needed.</p>
+        <a class="button" href="#join">Join the club</a>
+      </div>
+      <!-- No width or height attributes in pixels: the CSS sizes the image. -->
+      <img src="hero.jpg" alt="Students coding together at a table">
+    </section>
+
+    <!-- One wrapper around the cards, so one CSS rule controls the columns. -->
+    <section class="cards" id="events">
+      <article class="card">
+        <h2>Intro Night</h2>
+        <p>Build your first web page in an hour.</p>
+      </article>
+      <article class="card">
+        <h2>Game Jam</h2>
+        <p>Make a small game with a team in one afternoon.</p>
+      </article>
+      <article class="card">
+        <h2>Demo Day</h2>
+        <p>Show what you built and see what others made.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer id="join">
+    <p>Meetings every Thursday at 4pm.</p>
+  </footer>
+
 </body>
 </html>
